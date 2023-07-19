@@ -31,7 +31,7 @@ PY3 = sys.version_info[0] == 3 and sys.version_info[1] >= 5
 
 if not PY3:
     raise NotImplementedError(
-        ("uspeedo-sdk-python3 should be used in 3.5 " "and above of python interpreter")
+        ("uspeedo-sdk-python should be used in 3.5 " "and above of python interpreter")
     )
 
 
@@ -70,7 +70,7 @@ dependencies_dev = list(set(dependencies_ci + ["black"]))
 
 def do_setup():
     setup(
-        name="uspeedo-sdk-python3",
+        name="uspeedo-sdk-python",
         description="USpeedo Service Development Kit - Python",
         long_description=load_long_description(),
         long_description_content_type="text/markdown",
@@ -107,7 +107,7 @@ def do_setup():
         ],
         author="uspeedo",
         author_email="support@uspeedo.com",
-        url="https://github.com/uspeedo/uspeedo-sdk-python3",
+        url="https://github.com/uspeedo/uspeedo-sdk-python",
         python_requires=">=3.5",
     )
 

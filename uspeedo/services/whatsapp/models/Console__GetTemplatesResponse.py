@@ -15,13 +15,13 @@ limitations under the License.
 """
 
 from uspeedo.core.typesystem import schema, fields
+from uspeedo.services.whatsapp.models.Console__Cursors import Console__Cursors
+from uspeedo.services.whatsapp.models.Console__Paging import Console__Paging
 from uspeedo.services.whatsapp.models.Console__QualityScore import Console__QualityScore
 from uspeedo.services.whatsapp.models.Console__Button import Console__Button
 from uspeedo.services.whatsapp.models.Console__Example import Console__Example
 from uspeedo.services.whatsapp.models.Console__Component import Console__Component
 from uspeedo.services.whatsapp.models.Console__TemplateInfo import Console__TemplateInfo
-from uspeedo.services.whatsapp.models.Console__Cursors import Console__Cursors
-from uspeedo.services.whatsapp.models.Console__Paging import Console__Paging
 
 
 class Console__GetTemplatesResponse(schema.Schema):
