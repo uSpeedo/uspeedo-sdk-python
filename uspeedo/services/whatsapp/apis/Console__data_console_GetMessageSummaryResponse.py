@@ -15,8 +15,8 @@ limitations under the License.
 """
 
 from uspeedo.core.typesystem import schema, fields
-from uspeedo.services.whatsapp.models.Client__MessageSummary import Client__MessageSummary
 from uspeedo.services.whatsapp.models.Console__GetMessageSummaryResponse import Console__GetMessageSummaryResponse
+from uspeedo.services.whatsapp.models.Client__MessageSummary import Client__MessageSummary
 
 
 class Console__data_console_GetMessageSummaryResponse(schema.ResponseSchema):
