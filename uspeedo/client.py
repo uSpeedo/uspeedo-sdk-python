@@ -20,17 +20,24 @@ class Client(client.Client):
     def __init__(self, config: dict, transport=None, middleware=None):
         self._config = config
         super(Client, self).__init__(config, transport, middleware)
-    
+
+    def whatsapp(self):
+        from uspeedo.services.whatsapp.client import WhatsAppClient
+
+        return WhatsAppClient(
+            self._config, self.transport, self.middleware, self.logger
+        )
+
     def email(self):
         from uspeedo.services.email.client import EmailClient
 
         return EmailClient(
             self._config, self.transport, self.middleware, self.logger
         )
-    
-    def whatsapp(self):
-        from uspeedo.services.whatsapp.client import WhatsAppClient
 
-        return WhatsAppClient(
+    def asms(self):
+        from uspeedo.services.asms.client import AsmsClient
+
+        return AsmsClient(
             self._config, self.transport, self.middleware, self.logger
         )
