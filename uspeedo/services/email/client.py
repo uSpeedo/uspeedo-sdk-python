@@ -16,8 +16,8 @@ limitations under the License.
 import typing
 
 from uspeedo.core.client import Client
-from uspeedo.services.email.apis.Action__sendEmailTemplateReq import Action__sendEmailTemplateReq
-from uspeedo.services.email.apis.Action__SendEmailTemplateResponse import Action__SendEmailTemplateResponse
+from uspeedo.services.email.apis.SendEmailTemplateReq import SendEmailTemplateReq
+from uspeedo.services.email.apis.SendEmailTemplateRes import SendEmailTemplateRes
 
 
 class EmailClient(Client):
@@ -25,6 +25,6 @@ class EmailClient(Client):
         super(EmailClient, self).__init__(config, transport, middleware, logger)
     
     def send_email_template(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
-        d = Action__sendEmailTemplateReq().dumps(req)
+        d = SendEmailTemplateReq().dumps(req)
         resp = self.invoke("SendEmailTemplate", d, **kwargs)
-        return Action__SendEmailTemplateResponse().loads(resp)
+        return SendEmailTemplateRes().loads(resp)
