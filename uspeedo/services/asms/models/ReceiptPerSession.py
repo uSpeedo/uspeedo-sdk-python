@@ -23,6 +23,6 @@ class ReceiptPerSession(schema.Schema):
     """
 
     fields = {
-        "ReceiptSet": fields.List(ReceiptPerPhone(), required=False, dump_to="ReceiptSet", load_from="ReceiptSet"),
         "SessionNo": fields.Str(required=False, dump_to="SessionNo", load_from="SessionNo"),
+        "ReceiptSet": fields.List(ReceiptPerPhone(), required=False, dump_to="ReceiptSet", load_from="ReceiptSet"),
     }

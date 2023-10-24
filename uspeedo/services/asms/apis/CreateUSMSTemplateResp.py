@@ -15,17 +15,13 @@ limitations under the License.
 """
 
 from uspeedo.core.typesystem import schema, fields
-from uspeedo.services.asms.models.TargetPhoneWithFailure import TargetPhoneWithFailure
-from uspeedo.services.asms.models.SendInfoWithFailure import SendInfoWithFailure
 
 
-class SendBatchUSMSMessageResp(schema.ResponseSchema):
+class CreateUSMSTemplateResp(schema.ResponseSchema):
 
-    """ SendBatchUSMSMessageResp - 
+    """ CreateUSMSTemplateResp - 
     """
 
     fields = {
-        "SuccessCount": fields.Int(required=False, dump_to="SuccessCount", load_from="SuccessCount"),
-        "FailContent": fields.List(SendInfoWithFailure(), required=False, dump_to="FailContent", load_from="FailContent"),
-        "SessionNo": fields.Str(required=False, dump_to="SessionNo", load_from="SessionNo"),
+        "TemplateId": fields.Str(required=False, dump_to="TemplateId", load_from="TemplateId"),
     }

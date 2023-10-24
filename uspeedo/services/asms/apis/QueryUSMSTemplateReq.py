@@ -23,6 +23,6 @@ class QueryUSMSTemplateReq(schema.RequestSchema):
     """
 
     fields = {
-        "AccountId": fields.Int(required=False, dump_to="AccountId", load_from="AccountId"),
         "TemplateId": fields.List(fields.Str(required=True, dump_to="TemplateId", load_from="TemplateId")),
+        "AccountId": fields.Int(required=False, dump_to="AccountId", load_from="AccountId"),
     }

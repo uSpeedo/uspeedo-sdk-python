@@ -23,15 +23,15 @@ class OutTemplate(schema.Schema):
     """
 
     fields = {
-        "Status": fields.Int(required=False, dump_to="Status", load_from="Status"),
-        "TemplateId": fields.Str(required=False, dump_to="TemplateId", load_from="TemplateId"),
-        "Attributes": fields.List(VariableAttr(), required=False, dump_to="Attributes", load_from="Attributes"),
         "CreateTime": fields.Int(required=False, dump_to="CreateTime", load_from="CreateTime"),
-        "Remark": fields.Str(required=False, dump_to="Remark", load_from="Remark"),
-        "Tags": fields.List(fields.Int(required=False, dump_to="Tags", load_from="Tags")),
         "Template": fields.Str(required=False, dump_to="Template", load_from="Template"),
-        "TemplateName": fields.Str(required=False, dump_to="TemplateName", load_from="TemplateName"),
+        "Attributes": fields.List(VariableAttr(), required=False, dump_to="Attributes", load_from="Attributes"),
         "ErrDesc": fields.Str(required=False, dump_to="ErrDesc", load_from="ErrDesc"),
         "Instruction": fields.Str(required=False, dump_to="Instruction", load_from="Instruction"),
         "Purpose": fields.Int(required=False, dump_to="Purpose", load_from="Purpose"),
+        "Remark": fields.Str(required=False, dump_to="Remark", load_from="Remark"),
+        "Status": fields.Int(required=False, dump_to="Status", load_from="Status"),
+        "Tags": fields.List(fields.Int(required=False, dump_to="Tags", load_from="Tags")),
+        "TemplateId": fields.Str(required=False, dump_to="TemplateId", load_from="TemplateId"),
+        "TemplateName": fields.Str(required=False, dump_to="TemplateName", load_from="TemplateName"),
     }

@@ -15,7 +15,6 @@ class Request:
         url: str,
         method: str = "GET",
         params: dict = None,
-        data: dict = None,
         json: dict = None,
         headers: dict = None,
         **kwargs
@@ -23,14 +22,12 @@ class Request:
         self.url = url
         self.method = method
         self.params = params
-        self.data = data
         self.json = json
         self.headers = headers
         self.request_time = 0
 
     def payload(self):
         payload = (self.params or {}).copy()
-        payload.update(self.data or {})
         payload.update(self.json or {})
         return payload
 

@@ -15,16 +15,17 @@ limitations under the License.
 """
 
 from uspeedo.core.typesystem import schema, fields
-from uspeedo.services.asms.models.TargetPhone import TargetPhone
 
 
-class BatchWithFailure(schema.Schema):
-    """ BatchWithFailure - 
+class TargetPhoneWithFailure(schema.Schema):
+    """ TargetPhoneWithFailure - 
     """
 
     fields = {
+        "Invalid": fields.Bool(required=False, dump_to="Invalid", load_from="Invalid"),
+        "Phone": fields.Str(required=False, dump_to="Phone", load_from="Phone"),
+        "TemplateParams": fields.List(fields.Str(required=False, dump_to="TemplateParams", load_from="TemplateParams")),
+        "UserId": fields.Str(required=False, dump_to="UserId", load_from="UserId"),
+        "ExtendCode": fields.Str(required=False, dump_to="ExtendCode", load_from="ExtendCode"),
         "FailureDetails": fields.Str(required=False, dump_to="FailureDetails", load_from="FailureDetails"),
-        "SenderId": fields.Str(required=False, dump_to="SenderId", load_from="SenderId"),
-        "Target": fields.List(TargetPhone(), required=False, dump_to="Target", load_from="Target"),
-        "TemplateId": fields.Str(required=False, dump_to="TemplateId", load_from="TemplateId"),
     }

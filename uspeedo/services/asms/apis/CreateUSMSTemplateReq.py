@@ -23,9 +23,9 @@ class CreateUSMSTemplateReq(schema.RequestSchema):
     """
 
     fields = {
-        "TemplateName": fields.Str(required=True, dump_to="TemplateName", load_from="TemplateName"),
-        "Purpose": fields.Int(required=True, dump_to="Purpose", load_from="Purpose"),
-        "Template": fields.Str(required=True, dump_to="Template", load_from="Template"),
-        "AccountId": fields.Int(required=False, dump_to="AccountId", load_from="AccountId"),
         "Remark": fields.Str(required=False, dump_to="Remark", load_from="Remark"),
+        "Template": fields.Str(required=True, dump_to="Template", load_from="Template"),
+        "TemplateName": fields.Str(required=True, dump_to="TemplateName", load_from="TemplateName"),
+        "AccountId": fields.Int(required=False, dump_to="AccountId", load_from="AccountId"),
+        "Purpose": fields.Int(required=True, dump_to="Purpose", load_from="Purpose"),
     }
