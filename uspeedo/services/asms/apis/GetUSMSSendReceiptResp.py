@@ -15,8 +15,8 @@ limitations under the License.
 """
 
 from uspeedo.core.typesystem import schema, fields
-from uspeedo.services.asms.models.ReceiptPerSession import ReceiptPerSession
 from uspeedo.services.asms.models.ReceiptPerPhone import ReceiptPerPhone
+from uspeedo.services.asms.models.ReceiptPerSession import ReceiptPerSession
 
 
 class GetUSMSSendReceiptResp(schema.ResponseSchema):

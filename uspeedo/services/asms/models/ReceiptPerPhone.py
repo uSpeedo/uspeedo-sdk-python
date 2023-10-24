@@ -22,12 +22,12 @@ class ReceiptPerPhone(schema.Schema):
     """
 
     fields = {
-        "ReceiptResult": fields.Str(required=False, dump_to="ReceiptResult", load_from="ReceiptResult"),
-        "ReceiptTime": fields.Int(required=False, dump_to="ReceiptTime", load_from="ReceiptTime"),
-        "UserId": fields.Str(required=False, dump_to="UserId", load_from="UserId"),
         "AccountId": fields.Int(required=False, dump_to="AccountId", load_from="AccountId"),
         "CostCount": fields.Int(required=False, dump_to="CostCount", load_from="CostCount"),
         "Phone": fields.Str(required=False, dump_to="Phone", load_from="Phone"),
         "ReceiptCode": fields.Str(required=False, dump_to="ReceiptCode", load_from="ReceiptCode"),
         "ReceiptDesc": fields.Str(required=False, dump_to="ReceiptDesc", load_from="ReceiptDesc"),
+        "ReceiptResult": fields.Str(required=False, dump_to="ReceiptResult", load_from="ReceiptResult"),
+        "ReceiptTime": fields.Int(required=False, dump_to="ReceiptTime", load_from="ReceiptTime"),
+        "UserId": fields.Str(required=False, dump_to="UserId", load_from="UserId"),
     }

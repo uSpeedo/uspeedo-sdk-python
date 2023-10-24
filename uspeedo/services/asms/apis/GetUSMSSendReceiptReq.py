@@ -23,6 +23,6 @@ class GetUSMSSendReceiptReq(schema.RequestSchema):
     """
 
     fields = {
-        "AccountId": fields.Int(required=False, dump_to="AccountId", load_from="AccountId"),
         "SessionNoSet": fields.List(fields.Str(required=False, dump_to="SessionNoSet", load_from="SessionNoSet")),
+        "AccountId": fields.Int(required=False, dump_to="AccountId", load_from="AccountId"),
     }

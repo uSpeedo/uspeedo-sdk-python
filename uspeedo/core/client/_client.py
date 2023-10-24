@@ -19,6 +19,11 @@ from uspeedo.core.utils import log
 from uspeedo.core.utils.middleware import Middleware
 from uspeedo.core import auth, exc
 
+HEADER_REQUEST_PUB = "X-Access-Key-Id"
+HEADER_REQUEST_SIG = "X-Signature"
+HEADER_REQUEST_TS = "X-Timestamp"
+HEADER_REQUEST_NONCE = "X-Nonce"
+
 
 class Client:
     def __init__(
@@ -138,7 +143,7 @@ class Client:
 
         # inject exception middleware
         ret_code_exc = exc.RetCodeException(
-            action=req.data.get("Action", ""),
+            action=req.json.get("Action", ""),
             code=int(data.get("RetCode", 0)),
             message=data.get("Message", ""),
             request_uuid=resp.request_uuid,
@@ -158,10 +163,10 @@ class Client:
             headers={
                 "User-Agent": self._build_user_agent(),
                 "Content-Type": "application/json",
-                "X-Access-Key-Id": self.credential.public_key,
-                "X-Signature": self.credential.verify_ac(payload),
-                "X-Timestamp": str(int(time.time())),
-                "X-Nonce": secrets.token_hex(5)
+                HEADER_REQUEST_PUB: self.credential.public_key,
+                HEADER_REQUEST_SIG: self.credential.verify_ac(payload),
+                HEADER_REQUEST_TS: str(int(time.time())),
+                HEADER_REQUEST_NONCE: secrets.token_hex(5)
             },
         )
 

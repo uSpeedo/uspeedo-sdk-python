@@ -1,3 +1,5 @@
+from typing import List, Union
+
 from uspeedo.core.utils.compat import str
 
 
@@ -22,12 +24,29 @@ def encode(d: dict) -> dict:
 
 
 def encode_value(v):
-    # bool only accept lower case
+    if isinstance(v, (str, bool, int, float)):
+        return simple2string(v)
+    elif isinstance(v, list):
+        return slice2string(v)
+    elif isinstance(v, dict):
+        return map2string(v)
+    else:
+        return str(v)
+
+
+def simple2string(v: Union[str, bool, int, float]) -> str:
     if isinstance(v, bool):
-        return "true" if v else "false"
-
-    # api gateway will try to decode float as int in lua syntax
-    if isinstance(v, float):
-        return str(int(v)) if v % 1 == 0 else str(v)
-
+        return str(v).lower()
     return str(v)
+
+
+def slice2string(arr: List[Union[str, bool, int, float, dict]]) -> str:
+    return ''.join([encode_value(v) for v in arr])
+
+
+def map2string(params: dict) -> str:
+    return ''.join([k + encode_value(params[k]) for k in extract_keys(params)])
+
+
+def extract_keys(d: dict) -> List[str]:
+    return sorted(d.keys())

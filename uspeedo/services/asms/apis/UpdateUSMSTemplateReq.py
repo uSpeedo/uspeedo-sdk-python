@@ -23,11 +23,11 @@ class UpdateUSMSTemplateReq(schema.RequestSchema):
     """
 
     fields = {
-        "Template": fields.Str(required=False, dump_to="Template", load_from="Template"),
-        "TemplateId": fields.Str(required=True, dump_to="TemplateId", load_from="TemplateId"),
-        "TemplateName": fields.Str(required=False, dump_to="TemplateName", load_from="TemplateName"),
         "VariableAttr": fields.Str(required=False, dump_to="VariableAttr", load_from="VariableAttr"),
         "AccountId": fields.Int(required=False, dump_to="AccountId", load_from="AccountId"),
         "Instruction": fields.Str(required=False, dump_to="Instruction", load_from="Instruction"),
         "Tags": fields.List(fields.Int(required=False, dump_to="Tags", load_from="Tags")),
+        "Template": fields.Str(required=False, dump_to="Template", load_from="Template"),
+        "TemplateId": fields.Str(required=True, dump_to="TemplateId", load_from="TemplateId"),
+        "TemplateName": fields.Str(required=False, dump_to="TemplateName", load_from="TemplateName"),
     }
