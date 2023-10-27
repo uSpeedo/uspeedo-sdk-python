@@ -16,42 +16,27 @@ limitations under the License.
 import typing
 
 from uspeedo.core.client import Client
-from uspeedo.services.whatsapp.apis.DeleteTemplateReq import DeleteTemplateReq
-from uspeedo.services.whatsapp.apis.Empty import Empty
+from uspeedo.services.whatsapp.apis.GetTemplatesReq import GetTemplatesReq
+from uspeedo.services.whatsapp.apis.GetTemplatesResData import GetTemplatesResData
 from uspeedo.services.whatsapp.apis.GetMessageSummaryReq import GetMessageSummaryReq
 from uspeedo.services.whatsapp.apis.GetMessageSummaryResData import GetMessageSummaryResData
-from uspeedo.services.whatsapp.apis.GetMediaReq import GetMediaReq
-from uspeedo.services.whatsapp.apis.GetMediaResData import GetMediaResData
-from uspeedo.services.whatsapp.apis.SendWhatsappMessageReq import SendWhatsappMessageReq
-from uspeedo.services.whatsapp.apis.SendWhatsappMessageResData import SendWhatsappMessageResData
 from uspeedo.services.whatsapp.apis.UploadMediaReq import UploadMediaReq
 from uspeedo.services.whatsapp.apis.UploadMediaResData import UploadMediaResData
 from uspeedo.services.whatsapp.apis.GetAccountPhoneListRequest import GetAccountPhoneListRequest
 from uspeedo.services.whatsapp.apis.GetAccountPhoneListResData import GetAccountPhoneListResData
+from uspeedo.services.whatsapp.apis.SendWhatsappMessageReq import SendWhatsappMessageReq
+from uspeedo.services.whatsapp.apis.SendWhatsappMessageResData import SendWhatsappMessageResData
+from uspeedo.services.whatsapp.apis.GetMediaReq import GetMediaReq
+from uspeedo.services.whatsapp.apis.GetMediaResData import GetMediaResData
+from uspeedo.services.whatsapp.apis.DeleteTemplateReq import DeleteTemplateReq
+from uspeedo.services.whatsapp.apis.Empty import Empty
 from uspeedo.services.whatsapp.apis.DeleteMediaReq import DeleteMediaReq
 from uspeedo.services.whatsapp.apis.Empty import Empty
-from uspeedo.services.whatsapp.apis.GetTemplatesReq import GetTemplatesReq
-from uspeedo.services.whatsapp.apis.GetTemplatesResData import GetTemplatesResData
 
 
 class WhatsAppClient(Client):
     def __init__(self, config: dict, transport=None, middleware=None, logger=None):
         super(WhatsAppClient, self).__init__(config, transport, middleware, logger)
-    
-    def get_media(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
-        d = GetMediaReq().dumps(req)
-        resp = self.invoke("GetMedia", d, **kwargs)
-        return GetMediaResData().loads(resp)
-    
-    def get_message_summary(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
-        d = GetMessageSummaryReq().dumps(req)
-        resp = self.invoke("GetMessageSummary", d, **kwargs)
-        return GetMessageSummaryResData().loads(resp)
-    
-    def send_whatsapp_message(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
-        d = SendWhatsappMessageReq().dumps(req)
-        resp = self.invoke("SendWhatsappMessage", d, **kwargs)
-        return SendWhatsappMessageResData().loads(resp)
     
     def upload_media(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
         d = UploadMediaReq().dumps(req)
@@ -63,6 +48,21 @@ class WhatsAppClient(Client):
         resp = self.invoke("GetAccountPhoneList", d, **kwargs)
         return GetAccountPhoneListResData().loads(resp)
     
+    def delete_template(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
+        d = DeleteTemplateReq().dumps(req)
+        resp = self.invoke("DeleteTemplate", d, **kwargs)
+        return Empty().loads(resp)
+    
+    def send_whatsapp_message(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
+        d = SendWhatsappMessageReq().dumps(req)
+        resp = self.invoke("SendWhatsappMessage", d, **kwargs)
+        return SendWhatsappMessageResData().loads(resp)
+    
+    def get_media(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
+        d = GetMediaReq().dumps(req)
+        resp = self.invoke("GetMedia", d, **kwargs)
+        return GetMediaResData().loads(resp)
+    
     def delete_media(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
         d = DeleteMediaReq().dumps(req)
         resp = self.invoke("DeleteMedia", d, **kwargs)
@@ -73,7 +73,7 @@ class WhatsAppClient(Client):
         resp = self.invoke("GetTemplates", d, **kwargs)
         return GetTemplatesResData().loads(resp)
     
-    def delete_template(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
-        d = DeleteTemplateReq().dumps(req)
-        resp = self.invoke("DeleteTemplate", d, **kwargs)
-        return Empty().loads(resp)
+    def get_message_summary(self, req: typing.Optional[dict] = None, **kwargs) -> dict:
+        d = GetMessageSummaryReq().dumps(req)
+        resp = self.invoke("GetMessageSummary", d, **kwargs)
+        return GetMessageSummaryResData().loads(resp)
