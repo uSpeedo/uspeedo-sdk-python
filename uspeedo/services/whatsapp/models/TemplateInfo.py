@@ -15,11 +15,11 @@ limitations under the License.
 """
 
 from uspeedo.core.typesystem import schema, fields
-from uspeedo.services.whatsapp.models.TemplateComponent import TemplateComponent
+from uspeedo.services.whatsapp.models.TemplateAttribute import TemplateAttribute
 from uspeedo.services.whatsapp.models.TemplateComponentExample import TemplateComponentExample
 from uspeedo.services.whatsapp.models.TemplateComponentButton import TemplateComponentButton
+from uspeedo.services.whatsapp.models.TemplateComponent import TemplateComponent
 from uspeedo.services.whatsapp.models.TemplateQualityScore import TemplateQualityScore
-from uspeedo.services.whatsapp.models.TemplateAttribute import TemplateAttribute
 
 
 class TemplateInfo(schema.Schema):
