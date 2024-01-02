@@ -1,5 +1,5 @@
 """
-Copyright 2023 USpeedo Technology Co., Ltd.
+Copyright 2024 USpeedo Technology Co., Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,12 +15,12 @@ limitations under the License.
 """
 
 from uspeedo.core.typesystem import schema, fields
-from uspeedo.services.whatsapp.models.TemplateComponent import TemplateComponent
+from uspeedo.services.whatsapp.models.TemplateQualityScore import TemplateQualityScore
 from uspeedo.services.whatsapp.models.TemplateComponentExample import TemplateComponentExample
 from uspeedo.services.whatsapp.models.TemplateComponentButton import TemplateComponentButton
 from uspeedo.services.whatsapp.models.TemplateInfo import TemplateInfo
-from uspeedo.services.whatsapp.models.TemplateQualityScore import TemplateQualityScore
 from uspeedo.services.whatsapp.models.TemplateAttribute import TemplateAttribute
+from uspeedo.services.whatsapp.models.TemplateComponent import TemplateComponent
 from uspeedo.services.whatsapp.models.GetTemplatesCursors import GetTemplatesCursors
 from uspeedo.services.whatsapp.models.GetTemplatesPaging import GetTemplatesPaging
 

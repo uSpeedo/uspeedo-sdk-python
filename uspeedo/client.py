@@ -1,5 +1,5 @@
 """
-Copyright 2023 USpeedo Technology Co., Ltd.
+Copyright 2024 USpeedo Technology Co., Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -21,17 +21,24 @@ class Client(client.Client):
         self._config = config
         super(Client, self).__init__(config, transport, middleware)
 
-    def whatsapp(self):
-        from uspeedo.services.whatsapp.client import WhatsAppClient
-
-        return WhatsAppClient(
-            self._config, self.transport, self.middleware, self.logger
-        )
-
     def email(self):
         from uspeedo.services.email.client import EmailClient
 
         return EmailClient(
+            self._config, self.transport, self.middleware, self.logger
+        )
+
+    def mms(self):
+        from uspeedo.services.mms.client import MMSClient
+
+        return MMSClient(
+            self._config, self.transport, self.middleware, self.logger
+        )
+
+    def whatsapp(self):
+        from uspeedo.services.whatsapp.client import WhatsAppClient
+
+        return WhatsAppClient(
             self._config, self.transport, self.middleware, self.logger
         )
 

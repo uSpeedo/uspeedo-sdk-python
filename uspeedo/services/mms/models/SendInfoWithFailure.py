@@ -1,5 +1,5 @@
 """
-Copyright 2023 USpeedo Technology Co., Ltd.
+Copyright 2024 USpeedo Technology Co., Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,12 +15,16 @@ limitations under the License.
 """
 
 from uspeedo.core.typesystem import schema, fields
+from uspeedo.services.mms.models.TargetPhoneWithFailure import TargetPhoneWithFailure
 
 
-class Empty(schema.ResponseSchema):
-
-    """ Empty - 
+class SendInfoWithFailure(schema.Schema):
+    """ SendInfoWithFailure - 
     """
 
     fields = {
+        "FailureDetails": fields.Str(required=False, dump_to="FailureDetails", load_from="FailureDetails"),
+        "SenderId": fields.Str(required=False, dump_to="SenderId", load_from="SenderId"),
+        "Target": fields.List(TargetPhoneWithFailure(), required=False, dump_to="Target", load_from="Target"),
+        "TemplateId": fields.Str(required=False, dump_to="TemplateId", load_from="TemplateId"),
     }
