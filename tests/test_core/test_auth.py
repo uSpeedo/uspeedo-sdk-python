@@ -18,3 +18,16 @@ def test_verify_ac():
         "public_key": "0dca1d51a9b3113c6f562acb0f813bce",
         "private_key": "NTk1Mzk0MAItOWI0My10MGM4LTg0NmMMNDM0ZGM5Y2ZkMmNk",
     }
+
+    d = {
+        "Action": "SendBatchUSMSMessage",
+        "TaskContent": [{
+            "TemplateId": "UTAXXXXXXXXXXX",
+            "SenderId": "uspeedo",
+            "Target": [{
+                "Phone": "1111",
+                "TemplateParams": ["1111"]
+            }]
+        }]
+    }
+    assert cred.verify_ac(d) == "7175ca50d6204dfd469e8aab447810c08f9da53f"

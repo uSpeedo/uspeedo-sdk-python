@@ -1,5 +1,5 @@
 """
-Copyright 2023 USpeedo Technology Co., Ltd.
+Copyright 2024 USpeedo Technology Co., Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@ limitations under the License.
 """
 
 from uspeedo.core.typesystem import schema, fields
-from uspeedo.services.whatsapp.models.GetMessageSummaryRes import GetMessageSummaryRes
 from uspeedo.services.whatsapp.models.MessageSummary import MessageSummary
+from uspeedo.services.whatsapp.models.GetMessageSummaryRes import GetMessageSummaryRes
 
 
 class GetMessageSummaryResData(schema.ResponseSchema):
