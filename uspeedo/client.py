@@ -48,3 +48,10 @@ class Client(client.Client):
         return AsmsClient(
             self._config, self.transport, self.middleware, self.logger
         )
+
+    def vms(self):
+        from uspeedo.services.vms.client import VMSClient
+
+        return VMSClient(
+            self._config, self.transport, self.middleware, self.logger
+        )
