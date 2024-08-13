@@ -23,7 +23,9 @@ class ReceiptPerPhone(schema.Schema):
 
     fields = {
         "AccountId": fields.Int(required=False, dump_to="AccountId", load_from="AccountId"),
+        "BrevityCode": fields.Str(required=False, dump_to="BrevityCode", load_from="BrevityCode"),
         "CostCount": fields.Int(required=False, dump_to="CostCount", load_from="CostCount"),
+        "CountryCode": fields.Str(required=False, dump_to="CountryCode", load_from="CountryCode"),
         "Phone": fields.Str(required=False, dump_to="Phone", load_from="Phone"),
         "ReceiptCode": fields.Str(required=False, dump_to="ReceiptCode", load_from="ReceiptCode"),
         "ReceiptDesc": fields.Str(required=False, dump_to="ReceiptDesc", load_from="ReceiptDesc"),
