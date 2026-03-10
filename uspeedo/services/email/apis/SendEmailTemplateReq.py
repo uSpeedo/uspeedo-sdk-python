@@ -28,4 +28,6 @@ class SendEmailTemplateReq(schema.RequestSchema):
         "EmailContent": fields.List(TargetEmail(), required=True, dump_to="EmailContent", load_from="EmailContent"),
         "SendEmail": fields.Str(required=True, dump_to="SendEmail", load_from="SendEmail"),
         "TemplateId": fields.Str(required=True, dump_to="TemplateId", load_from="TemplateId"),
+        "Subject": fields.Str(required=False, dump_to="Subject", load_from="Subject"),
+        "Abstract": fields.Str(required=False, dump_to="Abstract", load_from="Abstract"),
     }
