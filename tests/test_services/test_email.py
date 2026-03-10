@@ -22,7 +22,7 @@ from uspeedo.services.email.client import EmailClient
 
 
 def _build_minimal_req():
-    """最小请求构造（不含 Subject/Abstract）"""
+    """Build minimal request (without Subject/Abstract)"""
     return {
         "TemplateId": "UETXXXXXXXXXXX",
         "SendEmail": "examples@examples.com",
@@ -36,7 +36,7 @@ def _build_minimal_req():
 
 
 def test_send_email_template_dumps_without_optional_fields():
-    """不传 Subject/Abstract 时 dumps 结果不包含这两个字段，兼容历史版本"""
+    """When Subject/Abstract are not passed, dumps result excludes these fields for backward compatibility"""
     req = SendEmailTemplateReq().dumps(_build_minimal_req())
     assert "TemplateId" in req
     assert "SendEmail" in req
@@ -46,13 +46,13 @@ def test_send_email_template_dumps_without_optional_fields():
 
 
 def test_send_email_template_dumps_with_optional_fields():
-    """传入 Subject/Abstract 时 dumps 结果正确包含"""
+    """When Subject/Abstract are passed, dumps result correctly includes them"""
     d = _build_minimal_req()
-    d["Subject"] = "自定义邮件主题"
-    d["Abstract"] = "邮件摘要内容"
+    d["Subject"] = "Custom email subject"
+    d["Abstract"] = "Email abstract content"
     req = SendEmailTemplateReq().dumps(d)
-    assert req["Subject"] == "自定义邮件主题"
-    assert req["Abstract"] == "邮件摘要内容"
+    assert req["Subject"] == "Custom email subject"
+    assert req["Abstract"] == "Email abstract content"
 
 
 @pytest.mark.skipif(
@@ -60,7 +60,7 @@ def test_send_email_template_dumps_with_optional_fields():
     reason="Skip: USpeedo_PUBLIC_KEY or USpeedo_PRIVATE_KEY not set",
 )
 def test_send_email_template_integration():
-    """真实 API 调用，需设置环境变量 USpeedo_PUBLIC_KEY、USpeedo_PRIVATE_KEY"""
+    """Real API call, requires USpeedo_PUBLIC_KEY and USpeedo_PRIVATE_KEY env vars"""
     config = {
         "public_key": os.getenv("USpeedo_PUBLIC_KEY"),
         "private_key": os.getenv("USpeedo_PRIVATE_KEY"),
@@ -68,8 +68,8 @@ def test_send_email_template_integration():
     client = EmailClient(config)
 
     req = _build_minimal_req()
-    req["Subject"] = "集成测试主题"
-    req["Abstract"] = "集成测试摘要"
+    req["Subject"] = "Integration test subject"
+    req["Abstract"] = "Integration test abstract"
 
     resp = client.send_email_template(req)
 
