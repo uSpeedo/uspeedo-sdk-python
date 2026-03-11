@@ -70,7 +70,7 @@ dependencies_dev = list(set(dependencies_ci + ["black"]))
 
 def do_setup():
     setup(
-        name="uspeedo-sdk-python",
+        name="uspeedo-sdk-py",
         description="USpeedo Service Development Kit - Python",
         long_description=load_long_description(),
         long_description_content_type="text/markdown",
